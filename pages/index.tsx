@@ -8,24 +8,44 @@ const Home: NextPage = () => {
     <div className="bg-slate-400 py-14 px-10 grid gap-10 min-h-screen">
       <div className="bg-white p-6 rounded-3xl shadow-xl">
         <span className="font-semibold text-3xl">Select Item</span>
-        <div className="flex justify-between my-2">
-          <span className="text-gray-500">Grey Chair</span>
-          <span className="font-semibold">$19</span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-gray-500">Grey Chair</span>
-          <span className="font-semibold">$19</span>
-        </div>
+        <ul>
+          {[1, 2, 3, 4, 5].map((index) => (
+            <div
+              key={index}
+              className="flex justify-between my-2 
+              // first:bg-blue-50 
+              // last:bg-blue-50
+              // only:bg-red-500
+              odd:bg-blue-50
+              even:bg-yellow-500"
+            >
+              <span className="text-gray-500">Grey Chair</span>
+              <span className="font-semibold">$19</span>
+            </div>
+          ))}
+        </ul>
+        <ul>
+          {["a", "b", "c", ""].map((c, i) => (
+            <li className="bg-red-500 py-2 empty:hidden" key={i}>
+              {c}
+            </li>
+          ))}
+        </ul>
         <div className="mt-2 pt-2 border-t-2 border-dashed flex justify-between">
           <span>Total</span>
           <span className="font-semibold">$10</span>
         </div>
-        <div className="w-2/4 mx-auto mt-5 bg-blue-500 text-white p-3 text-center rounded-xl">
+        <div
+          className="w-2/4 mx-auto mt-5 bg-blue-500 text-white p-3 text-center rounded-xl
+        hover:bg-teal-500 hover:text-black
+        active:bg-yellow-500 focus:text-red-500
+        cursor-pointer"
+        >
           Checkout
         </div>
       </div>
       {/* 2nd div */}
-      <div className="bg-white overflow-hidden rounded-3xl shadow-xl">
+      <div className="group bg-white overflow-hidden rounded-3xl shadow-xl">
         <div className="bg-blue-500 p-6 pb-14">
           <span className="text-white text-2xl">Profile</span>
         </div>
@@ -35,7 +55,7 @@ const Home: NextPage = () => {
               <span className="text-sm text-gray-500">Orders</span>
               <span className="font-medium">340</span>
             </div>
-            <div className="h-24 w-24 bg-red-400 rounded-full" />
+            <div className=" group-hover:bg-red-300 h-24 w-24 bg-gray-200 rounded-full" />
             <div className="flex flex-col items-center">
               <span className="text-sm text-gray-500">Spent</span>
               <span className="font-medium">$340</span>
@@ -61,10 +81,10 @@ const Home: NextPage = () => {
           <span className="font-medium text-xl">Swoon Lounge</span>
           <span className="text-xs text-gray-500">Chair</span>
           <div className="mt-3 mb-5 flex justify-between items-center">
-            <div className="flex items-center">
-              <input type="radio" />
-              <input type="radio" />
-              <input type="radio" />
+            <div className="space-x-2">
+              <button className="w-5 h-5 rounded-full bg-yellow-500 cursor-pointer focus:ring-2 ring-offset-1 ring-yellow-500 transition"></button>
+              <button className="w-5 h-5 rounded-full bg-indigo-500 focus:ring-2 ring-offset-1 ring-indigo-500 transition"></button>
+              <button className="w-5 h-5 rounded-full bg-teal-500 focus:ring-2 ring-offset-1 ring-teal-500 transition"></button>
             </div>
             <div className="flex items-center space-x-5">
               <button className="rounded-lg p-1.5 bg-blue-200 flex justify-center items-center aspect-square text-xl text-gray-500 w-8">
